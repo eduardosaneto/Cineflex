@@ -1,6 +1,8 @@
 import {useState, useEffect} from 'react';
 import {Link, useParams} from 'react-router-dom';
 import axios from 'axios';
+import Seat from './Session/Seat';
+import Label from './Session/Label';
 import Footer from './Footer';
 
 export default function Session() {
@@ -12,7 +14,6 @@ export default function Session() {
     useEffect(() => {
         const request = axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/showtimes/${sessionId}/seats`);
         request.then(response => {
-            console.log(response.data.seats);
             setMovieData(response.data.movie);
 			setSeats(response.data.seats);            
 		});
@@ -26,25 +27,11 @@ export default function Session() {
             <span><h1>Selecione o(s) assento(s)</h1></span>
             <ul className="session-seats">
                 {seats.map(seat => (
-                    <li className={`seat ${seat.isAvailable} ? available : unavailable`}>
-                        <p>{seat.id}</p>
-                    </li>
+                    <Seat id={seat.id} isAvailable={seat.isAvailable} 
+                    />
                 ))}
             </ul>
-            <div className="label">
-                <div className="label-option">
-                    <div className="legend selected"></div>
-                    <p>Selecionado</p>
-                </div>
-                <div className="label-option">
-                    <div className="legend available"></div>
-                    <p>Disponível</p>
-                </div>
-                <div className="label-option">
-                    <div className="legend unavailable"></div>
-                    <p>Indisponível</p>                    
-                </div>
-            </div>
+            <Label />
             <div><h3>Nome do comprador</h3></div>
             <input type="text" placeholder="Digite seu nome..." value=""/>
             <div><h3>CPF do comprador</h3></div>
@@ -54,3 +41,4 @@ export default function Session() {
         </>
     );
 }
+
