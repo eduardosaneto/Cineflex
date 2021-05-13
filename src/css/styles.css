@@ -26,7 +26,7 @@ section {
     min-width: 320px;
     max-width: 375px;
     margin: 0 auto;
-    padding: 75px 25px 89px 25px;
+    padding: 75px 25px 120px 25px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -89,7 +89,7 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 50px auto 60px auto;
+    margin: 50px auto 30px auto;
     background: #E8833A;
     border: none;
     border-radius: 3px;
@@ -101,6 +101,15 @@ button {
 
 button:active {
     filter: brightness(1.2);
+}
+
+.loading {
+    width: 100%;
+    height: 100px;
+}
+
+.loading img {
+    width: 100%;
 }
 
 .selected {

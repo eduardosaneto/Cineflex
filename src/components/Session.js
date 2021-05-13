@@ -1,13 +1,35 @@
+import {useState, useEffect} from 'react';
+import {Link, useParams} from 'react-router-dom';
+import axios from 'axios';
 import Footer from './Footer';
 
 export default function Session() {
+
+    const [seats, setSeats] = useState([]);
+    const [movieData, setMovieData] = useState([]);
+    const { sessionId } = useParams();
+
+    useEffect(() => {
+        const request = axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/showtimes/${sessionId}/seats`);
+        request.then(response => {
+            console.log(response.data.seats);
+            setMovieData(response.data.movie);
+			setSeats(response.data.seats);            
+		});
+        request.catch(error => {
+            alert("There has been an error. Please try reload this page");
+        });
+    }, []);
+
     return (
         <>
             <span><h1>Selecione o(s) assento(s)</h1></span>
             <ul className="session-seats">
-                <li className="seat">
-                    <p>01</p>
-                </li> 
+                {seats.map(seat => (
+                    <li className={`seat ${seat.isAvailable} ? available : unavailable`}>
+                        <p>{seat.id}</p>
+                    </li>
+                ))}
             </ul>
             <div className="label">
                 <div className="label-option">
@@ -28,7 +50,7 @@ export default function Session() {
             <div><h3>CPF do comprador</h3></div>
             <input type="number" placeholder="Digite seu CPF..." value=""/>
             <button>Reservar assento(s)</button>
-            <Footer />
+            <Footer key={movieData.id} poster={movieData.posterURL} title={movieData.title}/>
         </>
     );
 }

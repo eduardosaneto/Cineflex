@@ -8,5 +8,6 @@ import './css/mainPage.css';
 import './css/selectedMovie.css';
 import './css/session.css';
 import "./css/success.css";
+import "./images/loading.gif";
 
 ReactDOM.render(<App />, document.querySelector(".root"));
