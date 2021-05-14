@@ -1,18 +1,28 @@
 export default function Label() {
+
+    const labelType = [
+        {
+            class: "selected",
+            name: "Selecionado"
+        },
+        {
+            class: "available",
+            name: "Disponível"
+        },
+        {
+            class: "unavailable",
+            name: "Indisponível"
+        }
+    ]
+    
     return (
         <div className="label">
-            <div className="label-option">
-                <div className="legend selected"></div>
-                <p>Selecionado</p>
-            </div>
-            <div className="label-option">
-                <div className="legend available"></div>
-                <p>Disponível</p>
-            </div>
-            <div className="label-option">
-                <div className="legend unavailable"></div>
-                <p>Indisponível</p>                    
-            </div>
+            {labelType.map(item => (
+                <div className="label-option">
+                    <div className={`legend ${item.class}`}></div>
+                    <p>{item.name}</p>
+                </div>    
+            ))}
         </div>
     );
 }

@@ -11,9 +11,8 @@ export default function MainPage() {
         request.then(response => {
 			setMoviesData(response.data);
 		});
-        request.catch(error => {
+        request.catch(() => {
             alert("There has been an error. Please try again in a feel minutes");
-            // window.location.reload();
         });
     },[])
 

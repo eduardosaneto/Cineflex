@@ -8,9 +8,12 @@ export default function Success({
     name,
     cpf,
 }) {
+
     return (
         <>
-            <span className="success-title"><h1>Pedido feito <br/>com sucesso!</h1></span>
+            <span className="success-title">
+                <h1>Pedido feito <br/>com sucesso!</h1>
+            </span>
             <div className="info">
                 <h2>Filme e sessão</h2>
                 <p>{movieData.title}</p>

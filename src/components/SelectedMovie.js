@@ -25,7 +25,7 @@ export default function SelectedMovie() {
             <span><h1>Selecione o horário</h1></span>
             <ul className="sessions" >
                 {sessionsData.map(sessions => (
-                    <li >
+                    <li>
                         <div className="date" key={sessions.id}>
                             <h2>{sessions.weekday} {sessions.date}</h2>
                         </div>
@@ -47,7 +47,7 @@ export default function SelectedMovie() {
                 title={movieData.title}
                 date=""
                 hour=""
-                />
+            />
         </>
     );
 }

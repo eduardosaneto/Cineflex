@@ -11,15 +11,15 @@ export default function Session({
     movieData, setMovieData,
     selectedSeats, setSelectedSeats,
     name, setName,
-    cpf, setCpf
+    cpf, setCpf,
 }) {
 
     const [seats, setSeats] = useState([]);
     const { sessionId } = useParams();
+    let disabled = true;
 
     useEffect(() => {
-        const request = axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/showtimes/${sessionId}/seats`);
-        
+        const request = axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/showtimes/${sessionId}/seats`);        
         request.then(response => {
             setSessionData(response.data);
             setSessionDateData(response.data.day);
@@ -31,27 +31,24 @@ export default function Session({
         });
     }, []);
 
+    if(name !== "" && cpf !== "" && selectedSeats.length > 0) {
+        disabled = false;
+    };
+
     function sendReservation(data) {
         const request = axios.post(`https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/seats/book-many`, data);
-        request.then((response) => {
-            console.log("Your reservation was successfully made");
-            console.log(response)
+        request.then(() => {
+            alert("Your reservation was successfully made");
         });
     } 
-    
-    function reservation() {
 
+    function reservation() {
         const reservationData = {
             ids: selectedSeats,
             name: name,
             cpf: cpf
-        };
-       
-        if(selectedSeats.length === 0 || name === "" || cpf === ""){
-            alert("Please, select at least one seat and insert your name and CPF");
-        } else {
-            sendReservation(reservationData);
-        }
+        };       
+        sendReservation(reservationData);
     }
 
     return (
@@ -73,24 +70,28 @@ export default function Session({
             <input 
                 type="text" placeholder="Digite seu nome..." value={name}
                 onChange={(e) => setName(e.target.value)}
-                />
+            />
             <div><h3>CPF do comprador</h3></div>
             <input 
                 type="text" placeholder="Digite seu CPF..." value={cpf}
                 onChange={(e) => setCpf(e.target.value)}
-                />
-            <Link className="link" to="/success">
-                <button onClick={reservation}>
-                    Reservar assento(s)
-                </button>
-            </Link>
+            />
+                <Link className="button" to="/success">
+                    <button 
+                        className={`${disabled ? "deactive" : ""}`} 
+                        disabled={disabled} 
+                        onClick={reservation}
+                    >
+                        Reservar assento(s)
+                    </button>
+                </Link>
             <Footer 
                 key={sessionData.id} 
                 poster={movieData.posterURL} 
                 title={movieData.title}
                 date={sessionDateData.weekday}
                 hour={sessionData.name}
-                />
+            />
         </>
     );
 }
