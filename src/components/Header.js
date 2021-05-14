@@ -1,9 +1,17 @@
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom';
+import { BsBoxArrowLeft } from "react-icons/bs";
 
 export default function Header() {
+
+    const history = useHistory();
+
+    function goBack() {
+        history.goBack();
+    }
+
     return (
         <header>
-            <ion-icon name="caret-back-outline"></ion-icon>
+            <BsBoxArrowLeft className="return" onClick={goBack}/>
             <Link to="/">
                 <h1>CINEFLEX</h1>
             </Link>

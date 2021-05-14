@@ -17,6 +17,7 @@ export default function SelectedMovie() {
 		});
         request.catch(error => {
             alert("There has been an error. Please try reload this page");
+            console.log(error);
         });
     }, []);
 

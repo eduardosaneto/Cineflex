@@ -18,3 +18,12 @@ header h1 {
     line-height: 39.84px;
     color: #E8833A;
 }
+
+.return {
+    font-size: 26px;
+    color: #E8833A;
+    position: fixed;
+    top: 21px;
+    left: 21px;
+    cursor: pointer;
+}

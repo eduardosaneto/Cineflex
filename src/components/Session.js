@@ -26,8 +26,9 @@ export default function Session({
             setMovieData(response.data.movie);
 			setSeats(response.data.seats);            
 		});
-        request.catch(() => {
+        request.catch(error => {
             alert("There has been an error. Please try reload this page");
+            console.log(error);
         });
     }, []);
 
@@ -37,8 +38,13 @@ export default function Session({
 
     function sendReservation(data) {
         const request = axios.post(`https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/seats/book-many`, data);
-        request.then(() => {
+        request.then(response => {
             alert("Your reservation was successfully made");
+            console.log(response);
+        });
+        request.catch(error => {
+            alert("There has been an error. Please try reload this page");
+            console.log(error);
         });
     } 
 
