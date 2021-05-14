@@ -1,5 +1,5 @@
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
-import {useState} from 'react';
+// import {useState} from 'react';
 import Header from './Header';
 import MainPage from './MainPage';
 import SelectedMovie from './SelectedMovie';
@@ -8,9 +8,7 @@ import Success from './Success';
 
 export default function App() {
 
-    const [movieData, setmovieData] = useState([]);
-
-
+    // const [movieData, setmovieData] = useState([]);
 
     return (
         <>

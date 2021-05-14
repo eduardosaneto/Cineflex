@@ -99,8 +99,8 @@ button {
     color: #fff;
 }
 
-button:active {
-    filter: brightness(1.2);
+button:hover {
+    filter: brightness(2.0);
 }
 
 .loading {

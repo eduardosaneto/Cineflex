@@ -69,5 +69,11 @@ input {
     font-style: italic;
     font-size: 18px;
     line-height: 21.09px;
-    color: #AFAFAF;
+    color: #000;
+}
+
+input:focus {
+    border: 1px solid #D5D5D5;
+    box-shadow: 0 0 0 0;
+    outline: 0;
 }
