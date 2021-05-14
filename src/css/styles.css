@@ -10,6 +10,14 @@ button {
     cursor: pointer;
 }
 
+a{
+    text-decoration: none;
+}
+
+a:hover {
+    filter: brightness(1.2);
+}
+
 textarea:focus, button:focus, li:focus, select:focus {
     box-shadow: 0 0 0 0;
     border: 0 none;
@@ -51,7 +59,8 @@ span h1 {
 
 footer {
     width: 100%;
-    padding: 14px 0px 14px 14px;
+    height: 117px;
+    padding: 10px 0px 10px 14px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -62,7 +71,7 @@ footer {
     left: 0;
 }
 
-footer div {
+.movie-info {
     width: 64px;
     height: 89px;
     padding: 6px;
@@ -74,6 +83,13 @@ footer div {
 
 footer img {
     width: 100%;
+}
+
+.session-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 footer h3 {
@@ -99,8 +115,8 @@ button {
     color: #fff;
 }
 
-button:hover {
-    filter: brightness(2.0);
+.link, .return-home {
+    width: 100%;
 }
 
 .loading {

@@ -41,7 +41,13 @@ export default function SelectedMovie() {
                     </li>
                 ))}
             </ul>
-            <Footer key={movieData.id} poster={movieData.posterURL} title={movieData.title}/>
+            <Footer 
+                key={movieData.id} 
+                poster={movieData.posterURL} 
+                title={movieData.title}
+                date=""
+                hour=""
+                />
         </>
     );
 }

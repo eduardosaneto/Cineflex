@@ -1,5 +1,5 @@
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
-// import {useState} from 'react';
+import {useState} from 'react';
 import Header from './Header';
 import MainPage from './MainPage';
 import SelectedMovie from './SelectedMovie';
@@ -8,7 +8,12 @@ import Success from './Success';
 
 export default function App() {
 
-    // const [movieData, setmovieData] = useState([]);
+    const [sessionData, setSessionData] = useState([]);
+    const [sessionDateData, setSessionDateData] = useState([]);
+    const [movieData, setMovieData] = useState([]);
+    const [selectedSeats, setSelectedSeats] = useState([]);
+    const [name, setName] = useState("");
+    const [cpf, setCpf] = useState("");
 
     return (
         <>
@@ -23,10 +28,30 @@ export default function App() {
                             <SelectedMovie />
                         </Route>
                         <Route path="/session/:sessionId" exact>
-                            <Session />
+                            <Session 
+                                sessionData={sessionData} 
+                                setSessionData={setSessionData}
+                                sessionDateData={sessionDateData} 
+                                setSessionDateData={setSessionDateData}
+                                movieData={movieData} 
+                                setMovieData={setMovieData}
+                                selectedSeats={selectedSeats} 
+                                setSelectedSeats={setSelectedSeats}
+                                name={name} 
+                                setName={setName}
+                                cpf={cpf} 
+                                setCpf={setCpf}
+                            />
                         </Route>
                         <Route path="/success" exact>
-                            <Success/>
+                            <Success
+                                sessionData={sessionData} 
+                                sessionDateData={sessionDateData} 
+                                movieData={movieData} 
+                                selectedSeats={selectedSeats} 
+                                name={name} 
+                                cpf={cpf}    
+                            />
                         </Route>
                     </Switch>
                 </BrowserRouter>
