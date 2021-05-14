@@ -76,7 +76,7 @@ export default function Session({
                 type="text" placeholder="Digite seu CPF..." value={cpf}
                 onChange={(e) => setCpf(e.target.value)}
             />
-                <Link className="button" to="/success">
+                <Link className="link" to="/success">
                     <button 
                         className={`${disabled ? "deactive" : ""}`} 
                         disabled={disabled} 

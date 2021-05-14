@@ -7,6 +7,7 @@ export default function Success({
     selectedSeats,
     name,
     cpf,
+    eraseData
 }) {
 
     return (
@@ -28,10 +29,10 @@ export default function Success({
             <div className="info">
                 <h2>Comprador</h2>
                 <p>{name}</p>
-                <p>{cpf}</p>
+                <p>{cpf.match(/.{1,3}/g).join(".").replace(/\.(?=[^.]*$)/,"-")}</p>
             </div>
             <Link className="link" to="/">
-                <button>Voltar para a Home</button>
+                <button onClick={eraseData}>Voltar para a Home</button>
             </Link>
         </>
     );

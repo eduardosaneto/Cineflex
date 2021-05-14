@@ -7,7 +7,9 @@ export default function Seat({id, isAvailable, selectedSeats, setSelectedSeats})
     function selectAvailableSeat(){
         if(!isSelected){            
             setIsSelected(true);
-            setSelectedSeats([...selectedSeats, id]);
+            const newSeat = [...selectedSeats, id];
+            newSeat.sort();
+            setSelectedSeats(newSeat);
         }
         else {
             setIsSelected(false);
