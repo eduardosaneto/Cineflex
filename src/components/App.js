@@ -15,11 +15,20 @@ export default function App() {
     const [name, setName] = useState("");
     const [cpf, setCpf] = useState("");
 
+    function eraseData() {
+        setSessionData([]);
+        setSessionDateData([]);
+        setMovieData([]);
+        setSelectedSeats([]);
+        setName("");
+        setCpf("");
+    }
+
     return (
         <>
-            <Header />
-            <section>
-                <BrowserRouter>
+            <BrowserRouter>
+                <Header />
+                <section>
                     <Switch>
                         <Route path="/" exact>
                             <MainPage />
@@ -50,12 +59,13 @@ export default function App() {
                                 movieData={movieData} 
                                 selectedSeats={selectedSeats} 
                                 name={name} 
-                                cpf={cpf}    
+                                cpf={cpf}
+                                eraseData={eraseData} 
                             />
                         </Route>
                     </Switch>
-                </BrowserRouter>
-            </section>
+                </section>
+            </BrowserRouter>
         </>
     );
 }

@@ -11,7 +11,7 @@ export default function Session({
     movieData, setMovieData,
     selectedSeats, setSelectedSeats,
     name, setName,
-    cpf, setCpf,
+    cpf, setCpf
 }) {
 
     const [seats, setSeats] = useState([]);
