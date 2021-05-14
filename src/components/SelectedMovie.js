@@ -16,7 +16,7 @@ export default function SelectedMovie() {
 			setsessionsData(response.data.days);            
 		});
         request.catch(error => {
-            alert("There has been an error. Please try reload this page");
+            alert("Ocorreu um erro. Por favor tente recarregar a página");
             console.log(error);
         });
     }, []);

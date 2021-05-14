@@ -4,7 +4,6 @@ import { BsBoxArrowLeft } from "react-icons/bs";
 export default function Header() {
 
     const location = useLocation();
-    console.log(location);
     const history = useHistory();
 
     function goBack() {

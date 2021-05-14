@@ -12,7 +12,7 @@ export default function MainPage() {
 			setMoviesData(response.data);
 		});
         request.catch(error => {
-            alert("There has been an error. Please try again in a feel minutes");
+            alert("Ocorreu um erro. Por favor tente novamente em alguns minutos");
             console.log(error);
         });
     },[])

@@ -27,7 +27,7 @@ export default function Session({
 			setSeats(response.data.seats);            
 		});
         request.catch(error => {
-            alert("There has been an error. Please try reload this page");
+            alert("Ocorreu um erro. Por favor tente recarregar a página");
             console.log(error);
         });
     }, []);
@@ -39,11 +39,11 @@ export default function Session({
     function sendReservation(data) {
         const request = axios.post(`https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/seats/book-many`, data);
         request.then(response => {
-            alert("Your reservation was successfully made");
+            alert("Sua reserva foi feita com sucesso!");
             console.log(response);
         });
         request.catch(error => {
-            alert("There has been an error. Please try reload this page");
+            alert("Ocorreu um erro. Por favor tente recarregar a página");
             console.log(error);
         });
     } 

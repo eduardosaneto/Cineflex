@@ -21,7 +21,7 @@ export default function Seat({id, isAvailable, selectedSeats, setSelectedSeats})
 
     function selectSeat(){
         if(!isAvailable){
-            alert("This seat is no longer available");
+            alert("Este lugar não está mais disponível");
         } else {
             selectAvailableSeat();
         }
